@@ -6,31 +6,47 @@
 package modelos;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author Fake Wings
  */
 public class BaseDeDatos {
-    
-public Dato agregar(Dato d) {
-		System.out.print("Agrega un objeto a la base de datos emulada");
-		return d;
-	}
-	
-	public Dato eliminar(Dato d) {
-		System.out.print("Elimina un objeto a la base de datos emulada");
-		return d;
-	}
-	public ArrayList<Dato> listar(Dato d) {
-		ArrayList<Dato> lista = new ArrayList<>();
-		System.out.print("retorna una lista de objetos de la base de datos emulada");
-		return lista;
-	}
-	public Dato modificar(Dato d) {
-		System.out.print("Modifica un objeto a la base de datos emulada");
-		return d;
-	}
+
+    private ArrayList<Dato> datos;
+
+    public BaseDeDatos() {
+        this.datos = new ArrayList<>();
+    }
+
+    public boolean agregar(Dato d) {
+        return this.datos.add(d);
+
+    }
+
+    public boolean eliminar(String id) {
+        for (int i = 0; i < datos.size(); i++) {
+            if (datos.get(i).getId().equals(id)) {
+                datos.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public ArrayList<Dato> listar() {
+        return this.datos;
+
+    }
+
+    public boolean modificar(Dato d) {
+        for (int i = 0; i < datos.size(); i++) {
+            if (datos.get(i).getId().equals(d.getId())) {
+                datos.get(i).setData(d.getData());
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
