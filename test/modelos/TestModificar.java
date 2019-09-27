@@ -24,8 +24,8 @@ public class TestModificar {
         BaseDeDatos instance = new BaseDeDatos();
         instance.agregar(dato);
         boolean esperado = true;
-        dato = new Dato("Dato2", new Object());
-        boolean obtenido = instance.modificar(dato);
+        dato = new Dato("Dato1", null);
+        boolean obtenido = instance.Modificar(dato);
         Assert.assertEquals(esperado, obtenido);
     }
 }

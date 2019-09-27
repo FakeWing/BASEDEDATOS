@@ -49,4 +49,14 @@ public class BaseDeDatos {
         return false;
     }
 
+    public boolean Modificar(Dato d) {
+        for (int i = 0; i < datos.size(); i++) {
+            if (datos.get(i).getId().equals(d.getId())) {
+                datos.get(i).setData(d.getData());
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
